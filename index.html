@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Open Scored App</title>
+  <meta name="description" content="Open Scored App" />
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 24px; background: #0a2a43; color: #ffffff; }
+    main { max-width: 460px; margin: 40px auto; background: #114164; border-radius: 14px; padding: 24px; }
+    a { color: #9ad54b; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Scored</h1>
+    <p><a id="openApp" href="/open.html">Open Scored App</a></p>
+  </main>
+  <script>
+    (function () {
+      var destination = "/open.html" + window.location.search + window.location.hash;
+      document.getElementById("openApp").href = destination;
+      window.location.replace(destination);
+    })();
+  </script>
+</body>
+</html>
