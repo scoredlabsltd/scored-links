@@ -22,7 +22,7 @@
   </style>
 </head>
 <body>
-  <div class="card">
+  <div id="iosInstructions" class="card" hidden>
     <h1>Instructions for iOS (iPhone) Users</h1>
     <p class="muted">Follow the instructions on the video to download the Scored&trade; App. TestFlight is Apple&rsquo;s official platform for beta testing apps before they are made available on the App Store.</p>
     <div id="setupHelp" class="setup-help">
@@ -123,6 +123,7 @@
       }
 
       function refreshSetupHelp() {
+        document.getElementById("iosInstructions").hidden = !isIOS;
         if (!isIOS) {
           setupHelp.style.display = "none";
           setupVideo.removeAttribute("src");
