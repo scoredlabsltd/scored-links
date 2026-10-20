@@ -19,15 +19,17 @@ if (!draft || !uuid.test(draft.requestId || '')) draft = { requestId: crypto.ran
 function showThanks() {
   document.querySelector('#survey').hidden = true;
   const thanks = document.querySelector('#thanks');
+  if (!matchId) thanks.querySelector('p').textContent = 'Your answers have been saved. See you on court!';
   thanks.hidden = false;
   thanks.focus();
 }
-if (!uuid.test(matchId)) {
+if (matchId && !uuid.test(matchId)) {
   form.hidden = true;
-  document.querySelector('#match-note').textContent = 'Scan the QR code shown on the app connected to the scoreboard after your match to leave feedback for that match.';
+  document.querySelector('#match-note').textContent = 'This feedback link is invalid. Scan the QR code again to continue.';
 } else if (draft.submitted) {
   showThanks();
 } else {
+  if (!matchId) document.querySelector('#match-note').textContent = 'Your answers won’t be linked to a match.';
   for (const name of fields) {
     const value = draft.answers?.[name];
     if (typeof value === 'string') form.elements.namedItem(name).value = value;
@@ -42,7 +44,7 @@ form.addEventListener('input', () => {
 });
 form.addEventListener('submit', async event => {
   event.preventDefault();
-  if (sending || !uuid.test(matchId) || !form.reportValidity()) return;
+  if (sending || (matchId && !uuid.test(matchId)) || !form.reportValidity()) return;
   const values = answers();
   draft.answers = values;
   store(storageKey, JSON.stringify(draft));
