@@ -58,7 +58,7 @@ form.addEventListener('submit', async event => {
       headers: { 'Content-Type': 'application/json', apikey: apiKey, Authorization: `Bearer ${apiKey}` },
       signal: controller.signal,
       body: JSON.stringify({ action: 'submit_feedback', installId, matchId,
-        category: 'General feedback', requestId: draft.requestId,
+        requestId: draft.requestId,
         easeOfUse: Number(values.easeOfUse), scoreboardReadability: Number(values.scoreboardReadability),
         improvedPlayingExperience: values.improvedPlayingExperience, useScoredAgain: values.useScoredAgain,
         improvement: values.improvement.trim() }),
