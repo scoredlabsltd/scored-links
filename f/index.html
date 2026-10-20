@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#FBFCFF">
+<meta name="referrer" content="no-referrer">
+<title>Match feedback · Scored</title>
+<link rel="stylesheet" href="feedback.css">
+<script src="feedback.js" type="module"></script>
+</head>
+<body>
+<main>
+<header><a href="/f/" aria-label="Scored feedback">scored<span>®</span></a><span class="tag">MATCH FEEDBACK</span></header>
+<section id="survey">
+<h1>How was your match?</h1>
+<p class="intro">A few quick questions about the match you just played. No app or sign-in needed.</p>
+<p class="match-note" id="match-note">Your answers will be linked to this match.</p>
+<form id="feedback-form">
+<fieldset><legend>1. How easy was Scored to use?</legend><div class="scale"><span>Difficult</span><span>Very easy</span></div><div class="choices"><label><input type="radio" name="easeOfUse" value="1" required><span>1</span></label><label><input type="radio" name="easeOfUse" value="2" required><span>2</span></label><label><input type="radio" name="easeOfUse" value="3" required><span>3</span></label><label><input type="radio" name="easeOfUse" value="4" required><span>4</span></label><label><input type="radio" name="easeOfUse" value="5" required><span>5</span></label></div></fieldset>
+<fieldset><legend>2. How easy was the scoreboard to read?</legend><div class="scale"><span>Difficult</span><span>Very easy</span></div><div class="choices"><label><input type="radio" name="scoreboardReadability" value="1" required><span>1</span></label><label><input type="radio" name="scoreboardReadability" value="2" required><span>2</span></label><label><input type="radio" name="scoreboardReadability" value="3" required><span>3</span></label><label><input type="radio" name="scoreboardReadability" value="4" required><span>4</span></label><label><input type="radio" name="scoreboardReadability" value="5" required><span>5</span></label></div></fieldset>
+<fieldset><legend>3. Did Scored improve your playing experience?</legend><div class="choices"><label><input type="radio" name="improvedPlayingExperience" value="yes" required><span>Yes</span></label><label><input type="radio" name="improvedPlayingExperience" value="somewhat" required><span>Somewhat</span></label><label><input type="radio" name="improvedPlayingExperience" value="no" required><span>No</span></label></div></fieldset>
+<fieldset><legend>4. Would you choose to use Scored again?</legend><div class="choices"><label><input type="radio" name="useScoredAgain" value="yes" required><span>Yes</span></label><label><input type="radio" name="useScoredAgain" value="maybe" required><span>Maybe</span></label><label><input type="radio" name="useScoredAgain" value="no" required><span>No</span></label></div></fieldset>
+<label class="improvement" for="improvement">5. What is the one thing you'd improve? <small>Optional</small></label>
+<textarea id="improvement" name="improvement" rows="3" maxlength="500" placeholder="Tell us what you'd change…"></textarea>
+<p id="error" role="alert"></p>
+<button type="submit" id="submit">Submit feedback</button>
+</form>
+</section>
+<section id="thanks" hidden tabindex="-1"><div class="tick" aria-hidden="true">✓</div><h1>Thank you for your feedback</h1><p>Your answers have been saved for this match. See you on court!</p></section>
+<noscript><p>Please enable JavaScript to send feedback.</p></noscript>
+<footer>No name, email or phone number required. We store a random browser identifier with your answers. <a href="/privacy.html">Privacy policy</a></footer>
+</main>
+</body>
+</html>

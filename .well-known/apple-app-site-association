@@ -5,6 +5,8 @@
       {
         "appID": "F6G7CWXC9G.com.scoredlabs.scored",
         "paths": [
+          "NOT /f/",
+          "NOT /f/*",
           "*"
         ]
       }
