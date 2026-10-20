@@ -24,7 +24,7 @@ function showThanks() {
 }
 if (!uuid.test(matchId)) {
   form.hidden = true;
-  document.querySelector('#match-note').textContent = 'Scan the QR code shown on the scoreboard after your match to leave feedback for that match.';
+  document.querySelector('#match-note').textContent = 'Scan the QR code shown on the app connected to the scoreboard after your match to leave feedback for that match.';
 } else if (draft.submitted) {
   showThanks();
 } else {
