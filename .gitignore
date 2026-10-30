@@ -1,1 +1,19 @@
 .DS_Store
+
+# Local archival worktrees and temporary files
+/.tmp/
+*.log
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.p8
+.netrc
+.npmrc
+credentials*.json
+service-account*.json
