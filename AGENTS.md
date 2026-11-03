@@ -11,6 +11,6 @@
 
 ## Public website boundary
 Everything committed here is public. Do not add internal migration manifests, device inventories, private endpoints with credentials or firmware source.
-Preserve CNAME, app association files, install targets, pairing URL formats and feedback behavior. Coordinate app/deep-link changes with scored-v2.
+Preserve CNAME, app association files, install targets, pairing URL formats and feedback behavior. Coordinate app/deep-link changes with scored-userapp.
 Review HTML/JavaScript changes and validate JSON association/configuration files. Changes to main can trigger GitHub Pages publication; do not merge or change deployment configuration without release authorization.
 This foundation adds documentation only and must not alter live website content.
