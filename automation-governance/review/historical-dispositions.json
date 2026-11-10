@@ -1,0 +1,32 @@
+{
+  "change_id": "SC-BE-53",
+  "review_status": "proposed; independent security approval required",
+  "baseline": "2601c3e36923161f86f9ffeec2dff2709776b6f7",
+  "entries": [
+    {
+      "commit": "b880097279256a3ff477829a6e70b0f1401cd93b",
+      "path": "f/feedback.js",
+      "line": 2,
+      "rule": "jwt",
+      "fingerprint": "b880097279256a3ff477829a6e70b0f1401cd93b:f/feedback.js:jwt:2",
+      "source_blob": "9284fdc5a1eedf87c1edcfc4199b01b8902c4507",
+      "source_sha256": "db2f1c4b0404d259e0f933036062dee44d4678e79552164ee83a69498fd884b2",
+      "line_sha256": "fcd5045d07c37e610cded7969e390fd165b115789d567eca1d0f91b55675e8b6",
+      "classification": "intentionally public Supabase anon client key; not a user/session/service-role secret",
+      "disposition": "proposed exact historical fingerprint only",
+      "value_sha256": "d20ac4a17f6564f7961b6b61acff06f426fc22a95aabb2e386a469768652d647",
+      "unverified_public_claims": {
+        "iss": "supabase",
+        "role": "anon",
+        "iat": 1778560870,
+        "exp": 2094136870
+      },
+      "limits": "Decoded claims are not signature verification. No live key validity, deployed RLS or revocation check; no credential changed. Client configuration and official anon-key semantics support public distribution, not entitlement."
+    }
+  ],
+  "sources": [
+    "https://supabase.com/docs/guides/getting-started/api-keys",
+    "https://firebase.google.com/docs/projects/api-keys"
+  ],
+  "no_live_credential_validation_or_changes": true
+}

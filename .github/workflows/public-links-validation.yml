@@ -25,4 +25,5 @@ jobs:
           tar -xzf "$work/scanner.tar.gz" -C "$work" gitleaks
           test "$("$work/gitleaks" version)" = '8.30.1'
           node tests/scanner-controls.cjs "$work/gitleaks"
+          python3 automation-governance/review/test_history_dispositions.py --scanner "$work/gitleaks" --repository .
           "$work/gitleaks" git . --log-opts=--all --redact=100
