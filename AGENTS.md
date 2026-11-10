@@ -14,3 +14,12 @@ Everything committed here is public. Do not add internal migration manifests, de
 Preserve CNAME, app association files, install targets, pairing URL formats and feedback behavior. Coordinate app/deep-link changes with scored-v2.
 Review HTML/JavaScript changes and validate JSON association/configuration files. Changes to main can trigger GitHub Pages publication; do not merge or change deployment configuration without release authorization.
 This foundation adds documentation only and must not alter live website content.
+
+## Default local-first CI workflow
+
+- Read `docs/development/CI-POLICY.md` before planning a change. Use the current approved `main` revision as the task base and PR target.
+- Read the approved issue, inspect HEAD/worktrees and staged, unstaged and untracked files, then work in an isolated task branch/worktree. Preserve unrelated work and existing source/dependency pins.
+- Run the relevant local checks documented here and in component instructions before proposing review. Record the exact revision, commands, results and any gaps; local success does not replace required hosted validation.
+- Keep routine development on the task branch and prepare a linked draft PR after local validation. Unless the current task explicitly authorizes the next milestone, stop at draft: do not mark ready, dispatch workflows, merge, deploy or publish. Authorization for another task does not carry over.
+- Keep existing security, integrity and coordination checks enabled. Draft-skipped producers and intentionally failing full-result gates are not full validation; never weaken checks, refresh fixtures or change protections/budgets to get green results. Before an authorized readiness/merge milestone, verify current head/base, required non-skipped checks and available Actions budget/capacity; historical policy observations are not live settings.
+- This repository is public: keep private issue links, coordination manifests and internal evidence out of commits and PR descriptions. A merge to `main` can publish GitHub Pages; obtain explicit Pages publication authorization as well as merge approval.
