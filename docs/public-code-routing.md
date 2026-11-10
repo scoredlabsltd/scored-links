@@ -9,3 +9,7 @@ Node fixtures validate the actual redirect script, public/legacy separation, sto
 Public Backend lookup remains unavailable pending independently reviewed registry/controller binding, release/deployment/activation and security qualification. No account is needed by the proposed public routing contract, but public code knowledge grants no customer/scoring authority. This source-only draft does not publish Pages or activate any service. Existing scoring and software release behavior are owned by the app/device, not this site. Physical GPIO handover is excluded.
 
 Rollback: close the draft and retain source/evidence before merge. Any later approved publication reversal requires separate review; do not turn permanent codes into credential redirects or recycle retired codes. No hosted data deletion or deployment is performed by these changes.
+
+## Availability checks
+
+The customer code remains a permanent public identifier. Normal PlayApp connections must make a fresh eligibility check, including remembered BLE targets; a cached name cannot bypass suspension. This landing page never supplies credentials or authority. Routing and subscription rollout remain separately reviewed and unpublished; no existing active session is forcibly disconnected by this page.
