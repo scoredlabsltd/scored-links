@@ -1,0 +1,7 @@
+# SC-BE-53 historical public-client attribution
+
+The one finding is an intentionally public Supabase anon client key in b880097279256a3ff477829a6e70b0f1401cd93b, f/feedback.js line 2, jwt rule. Exact source/blob/line proof and decoded public role/issuer metadata are in automation-governance/review/historical-dispositions.json; no raw token is copied. Decoded claims are not signature verification, live key validation or hosted RLS qualification. [Supabase documents public client API keys](https://supabase.com/docs/guides/getting-started/api-keys); service-role/user/session credentials are not public.
+
+Propose only that historical commit/path/line/rule fingerprint. Every scanner rule, checksum and threshold stays unchanged. Six real pinned-scanner tests verify immutable proof, unignored complete history, future identical values, adjacent lines, changed/repeated hashes, and unrelated synthetic GitHub/API/service-role JWT/Google credentials. All raw scanner reports remain disposable/redacted. No credential, hosted route, DNS/association file or deployment changed. Historical failure reports remain preserved.
+
+This is a reviewable disposition, not proof of safe deployed permissions. Public QR identifiers do not confer customer/scoring authority. Owner RLS/gateway/abuse review remains necessary before routing activation. Rollback removes only the proposed exact entry/test closure via reviewed revert, never history.

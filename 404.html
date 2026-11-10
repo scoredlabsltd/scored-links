@@ -24,6 +24,10 @@
       var pathCode = pathParts.length ? decodeURIComponent(pathParts[pathParts.length - 1]).trim().toUpperCase() : "";
       var resolverBaseUrl = "https://atwywgpbttnqxihlxhqj.supabase.co/functions/v1/resolve-token";
 
+      if (pathParts.length === 1 && pathCode.length === 8) {
+        window.location.replace('/open.html?customerCode=' + encodeURIComponent(pathCode) + '&purpose=public-code');
+        return;
+      }
       if (pathParts.length === 1 && shortCodePattern.test(pathCode)) {
         window.location.replace(resolverBaseUrl + "/" + encodeURIComponent(pathCode));
         return;

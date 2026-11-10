@@ -38,6 +38,7 @@
     </div>
   </div>
   </template>
+  <script src="/public-code.js"></script>
   <script>
     (function () {
       var appId = "com.scoredlabs.scored";
@@ -46,6 +47,13 @@
       var defaultIOSInstallUrl = "https://apps.apple.com/us/app/scored-court/id6772306424";
       var defaultSetupVideoUrl = "https://www.youtube.com/shorts/qj6u0K6iIGA";
       var defaultSetupEmbedUrl = "https://www.youtube.com/embed/qj6u0K6iIGA?autoplay=1&mute=1&playsinline=1&rel=0";
+      var publicStorage;
+      try { publicStorage = window.sessionStorage; } catch (_) { /* URL remains recoverable. */ }
+      var publicEntry = window.ScoredPublicCode.entry(window.location, publicStorage);
+      if (publicEntry) {
+        window.ScoredPublicCode.landing(publicEntry, window, document, defaultIOSInstallUrl, defaultAndroidInstallUrl);
+        return;
+      }
       var params = new URLSearchParams(window.location.search);
       var payload = params.toString();
       var shortCodePattern = /^[A-Z0-9]{6,12}$/;

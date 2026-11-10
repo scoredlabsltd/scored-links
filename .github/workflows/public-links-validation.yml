@@ -1,0 +1,29 @@
+name: Public Links source validation
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  links:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '26.0.0'
+      - run: node --test tests/public-code.test.cjs
+      - name: Pinned checksum and complete redacted source history
+        run: |
+          umask 077
+          work=$(mktemp -d "$RUNNER_TEMP/scored-links-scanner.XXXXXX")
+          trap 'rm -rf "$work"' EXIT
+          timeout 360s curl --fail --location --silent --show-error --connect-timeout 10 --max-time 90 --retry 2 --retry-delay 5 --retry-max-time 300 https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz --output "$work/scanner.tar.gz"
+          echo "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  $work/scanner.tar.gz" | sha256sum --check
+          tar -xzf "$work/scanner.tar.gz" -C "$work" gitleaks
+          test "$("$work/gitleaks" version)" = '8.30.1'
+          node tests/scanner-controls.cjs "$work/gitleaks"
+          python3 automation-governance/review/test_history_dispositions.py --scanner "$work/gitleaks" --repository .
+          "$work/gitleaks" git . --log-opts=--all --redact=100
