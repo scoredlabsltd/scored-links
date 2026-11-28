@@ -10,3 +10,10 @@ test('existing deployment and association assets remain valid JSON',()=>{for(con
 
 test('explicit retired eight-character token links cannot enter legacy launch',()=>{for(const query of ['?t=ABCDEFGH','?token=ABCD1234'])assert.equal(api.entry(location(query)).kind,'invalid');});
 test('scanner checksum verification precedes extraction and complete history remains enabled',()=>{const s=fs.readFileSync('.github/workflows/public-links-validation.yml','utf8');assert(s.indexOf('sha256sum --check')<s.indexOf('tar -xzf'));assert(s.includes('551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb'));assert(s.includes('--log-opts=--all --redact=100'));assert(!s.includes('continue-on-error'));});
+test('Android App Links declares the Scored app association', () => {
+  const associations = JSON.parse(fs.readFileSync('.well-known/assetlinks.json', 'utf8'));
+  assert.ok(associations.some(({ relation, target }) =>
+    target?.package_name === 'com.scoredlabs.scored' &&
+    target.namespace === 'android_app' &&
+    relation?.includes('delegate_permission/common.handle_all_urls')));
+});
